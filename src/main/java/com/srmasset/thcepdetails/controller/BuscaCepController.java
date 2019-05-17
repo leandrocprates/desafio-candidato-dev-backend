@@ -7,6 +7,8 @@ package com.srmasset.thcepdetails.controller;
 
 
 import com.google.gson.Gson;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.srmasset.thcepdetails.model.DadosCep;
 import com.srmasset.thcepdetails.model.DadosRequestCep;
 import com.srmasset.thcepdetails.service.BuscaCepService;
@@ -57,8 +59,13 @@ public class BuscaCepController {
         http://localhost:9090/cep/unico/02440050
     
     */
+    
+    @HystrixCommand(fallbackMethod = "tratamento_erro_timeout", commandProperties = {
+       @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")
+    })    
     @RequestMapping(value = "/unico/{cep}" , method = GET)
-    public ResponseEntity<DadosCep> testeBuscaCepUnico(@PathVariable("cep") String  cep  ){
+    public ResponseEntity<DadosCep> testeBuscaCepUnico(@PathVariable("cep") String  cep  ) throws InterruptedException{
+        Thread.sleep(5000);
         DadosCep dados = buscaCepService.buscaCepUnico(cep); 
         return new ResponseEntity<DadosCep>(dados, HttpStatus.OK ); 
     }
@@ -87,7 +94,11 @@ public class BuscaCepController {
     }
     
     
-    
+    private ResponseEntity<DadosCep> tratamento_erro_timeout(String  cep ){
+        
+        DadosCep dadosCep = new DadosCep();
+        return new ResponseEntity<DadosCep>(dadosCep, HttpStatus.INTERNAL_SERVER_ERROR ); 
+    }
 
     
 }
