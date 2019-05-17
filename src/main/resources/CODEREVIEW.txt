@@ -1,0 +1,38 @@
+
+
+1 - Pacote "srm.srmassset.pojos" poderia estar padronizado como "com.srmassset.pojos"
+2 - PojoExample.java sem nenhum valor private sem gets e sets.
+3 - Classe EntityFactory não faz a criação de nenhum objeto, nem implementa uma interface generica comum a objetos
+para criação de objetos relacionados.
+4 - Classe EntityFactory implementa logica de execucao o que não deveria ser implementado numa Factory.
+5 - Classe EntityFactory possui no metodo "processAddressValue" parametros que iniciam com maiusculo e minusculo. Deveria ser minusculo
+na primeira palavra seguido por outras iniciando com Maiusculo.
+
+processAddressValue(int age, String name, int streetNumber, String streetName, 
+                    String CityName, String StateName, String CountryName, 
+                    String zipcode, int code1, int code2) {
+
+6 - Classe EntityFactory metodo "processAddressValue". Passagem de valores fixos na chamada do metodo. Poderia vir 
+do console. Sempre executando a mesma coisa . 
+
+
+processAddressValue(40, "test name", 20, "streat name", "Lima", "Lima", "Peru", "00000000", 1, 2);
+
+7 - Classe EntityFactory Metodos "processAddressValue" e "callExternarRestService" nunca serão executados.
+
+8 - Classe EntityFactory variaves nao utilizadas : 
+
+String CityName, 
+String StateName, 
+String CountryName, 
+String zipcode, 
+int code1, 
+int code2
+
+9 - Classe ProcessRuleServices ao inves de criar o objeto "EntityFactory" com new poderia ser injetado pelo Spring.
+
+10 - Classe ProcessRuleServices inicializa o objeto "counters" mas passa ele como vazio para a funcao. 
+
+11 - Classe ProcessRuleServices esse service não esta sendo utilizado em lugar nenhum do codigo. 
+
+
