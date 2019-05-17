@@ -1,5 +1,3 @@
-
-
 1 - Pacote "srm.srmassset.pojos" poderia estar padronizado como "com.srmassset.pojos"
 2 - PojoExample.java sem nenhum valor private sem gets e sets.
 3 - Classe EntityFactory não faz a criação de nenhum objeto, nem implementa uma interface generica comum a objetos
@@ -36,5 +34,10 @@ int code2
 11 - Classe ProcessRuleServices esse service não esta sendo utilizado em lugar nenhum do codigo. 
 
 12 - Reorganizar nomes dos pacotes para Spring Boot conseguir ler classes de Service , Component e RestController 
+
+
+---------------------------------------------------------------------------------------------
+
+Resposta 2 : Podemos utilizar o spring actuator para checar o status do serviço.  
 
 
