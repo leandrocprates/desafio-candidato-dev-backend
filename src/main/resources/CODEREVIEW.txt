@@ -40,9 +40,29 @@ int code2
 
 Resposta 2 : Podemos utilizar o spring actuator para checar o status do serviço.  
 
+---------------------------------------------------------------------------------------------
+
+Resposta 3 : Serviços implementados na classe BuscaCepController. 
+
+
 ----------------------------------------------------------------------------------------------
 Resposta 4 : Utilizei o Redis para armazenamento em memoria . Por ser simples implementar e apropriado para isso. 
 Poderia tambem implementar no MongoDB .
 ----------------------------------------------------------------------------------------------
+ 
+Resposta 5 : Criei o Eurika Server numa aplicação independente rodando na mesma maquina e apontei 
+as configurados de properties para ele para registrar o serviço 
+
+----------------------------------------------------------------------------------------------
+
+Resposta 6 :Implementei o Hystrix no metodo GET da classe "BuscaCepController". Caso nao consiga acesso
+ao serviço seria interessante possuir um serviço de cep em cache dentro de um banco de dados interno.
+Ou fazer uma retentativa na consulta do serviço . Caso nao efetivo ai retornaria mensagem de erro para o usuario  
+        
+----------------------------------------------------------------------------------------------
+
+Modelo de chamada do Serviço rest ver na classe BuscaCepController.java . 
+
+
  
 
