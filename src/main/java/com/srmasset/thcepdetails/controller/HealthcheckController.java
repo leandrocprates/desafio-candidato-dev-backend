@@ -26,7 +26,7 @@ public class HealthcheckController {
     
     @RequestMapping(value = "/info" , method = GET)
     public ResponseEntity<String> testeExceptionHandler(){
-        log.info("Dentro do controller MainRestController antes de lancar excecao .");
+        log.info("Busca checkagem de valores  .");
         return new ResponseEntity<String>("Servico OK ", HttpStatus.OK ) ; 
     }
  
