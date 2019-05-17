@@ -59,9 +59,6 @@ public class BuscaCepController {
     */
     @RequestMapping(value = "/unico/{cep}" , method = GET)
     public ResponseEntity<DadosCep> testeBuscaCepUnico(@PathVariable("cep") String  cep  ){
-        //log.info("Buscando cep : " + cep );
-        //DadosCep dados = restTemplate.getForObject(url+cep, DadosCep.class); 
-        //log.info("Retorno : " + dados );
         DadosCep dados = buscaCepService.buscaCepUnico(cep); 
         return new ResponseEntity<DadosCep>(dados, HttpStatus.OK ); 
     }
@@ -84,15 +81,6 @@ public class BuscaCepController {
     */
     @RequestMapping(value = "/multiplo" , method = RequestMethod.POST)
     public ResponseEntity<List<DadosCep>> testeBuscaCepMultiplo(@RequestBody List<DadosRequestCep> listaDadosRequestCep){
-        //log.info("Buscando lista de ceps" );
-        //List<DadosCep> listaCeps = new ArrayList<DadosCep>();
-        
-        //for (DadosRequestCep dadosRequestCep : listaDadosRequestCep){
-        //    log.info("Buscando cep : " + dadosRequestCep.getCep() );
-        //    DadosCep dados = restTemplate.getForObject(url+dadosRequestCep.getCep(), DadosCep.class); 
-        //    log.info("Retorno : " + dados );
-        //    listaCeps.add(dados) ; 
-        //}
 
         List<DadosCep> listaCeps = buscaCepService.buscaCepMultiplo(listaDadosRequestCep);
         return new ResponseEntity<List<DadosCep>>(listaCeps, HttpStatus.OK ); 
