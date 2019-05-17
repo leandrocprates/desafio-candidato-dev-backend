@@ -35,4 +35,6 @@ int code2
 
 11 - Classe ProcessRuleServices esse service não esta sendo utilizado em lugar nenhum do codigo. 
 
+12 - Reorganizar nomes dos pacotes para Spring Boot conseguir ler classes de Service , Component e RestController 
+
 
